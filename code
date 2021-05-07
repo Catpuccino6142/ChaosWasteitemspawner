@@ -1,0 +1,9 @@
+local pickup_name = "killer_in_the_shadows_potion"
+local local_player_unit = Managers.player:local_player().player_unit
+Managers.state.network.network_transmit:send_rpc_server(
+    "rpc_spawn_pickup",
+    NetworkLookup.pickup_names[pickup_name],
+    Unit.local_position(local_player_unit, 0),
+    Unit.local_rotation(local_player_unit, 0),
+    NetworkLookup.pickup_spawn_types['dropped']
+)
